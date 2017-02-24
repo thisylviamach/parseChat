@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "BAD8DD230838BBB4DC9A1B1B3AE29FC46E005E8C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "BAD8DD230838BBB4DC9A1B1B3AE29FC46E005E8C" : 9223372036854775807,
+    "A153B806A0CEB7623996E7880CD0D554101779D2" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A97C8AC6-5800-4CAD-90B8-D1812FFCE6D8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "BAD8DD230838BBB4DC9A1B1B3AE29FC46E005E8C" : "ParseChat\/",
+    "A153B806A0CEB7623996E7880CD0D554101779D2" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "parseChat",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "parseChat\/parseChat.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/thisylviamach\/Finder.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A153B806A0CEB7623996E7880CD0D554101779D2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/thisylviamach\/parseChat.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BAD8DD230838BBB4DC9A1B1B3AE29FC46E005E8C"
+    }
+  ]
+}
