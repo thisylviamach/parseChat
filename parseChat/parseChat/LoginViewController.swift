@@ -59,20 +59,11 @@ class ViewController: UIViewController {
                 }
             } else {
                 print("logIn: success")
+                self.performSegue(withIdentifier: "LoginSegue", sender: nil)
             }
         }
+    
         
-       
-//        PFUser.logIn(withUsername: emailTextField.text!) {
-//            (user: PFUser?, error: Error?) -> Void in
-//            if let user == nil {
-//                let errorString = (error as NSerror).userInfo["error"] as? NSString
-//                
-//                print("logIn: \(errorString)")
-//            } else {
-//                
-//            }
-//        }
         
     }
 
