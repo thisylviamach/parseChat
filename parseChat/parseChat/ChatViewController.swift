@@ -23,9 +23,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // table view initalization
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.estimatedRowHeight = 80
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         
         // add handler for pressing Send button
         sendButton.addTarget(self, action: #selector(sendMessageOnclick), for: .primaryActionTriggered)
@@ -35,6 +38,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             // query parse every second for all messages using Message class
             let query = PFQuery(className: "Message")
             query.order(byDescending: "createdAt")
+            query.includeKey("user")
             query.findObjectsInBackground {
                 (objects: [PFObject]?, error: Error?) -> Void in
                 if let error = error {
@@ -86,22 +90,17 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell") as! ChatViewCell
         let currentObject = self.messages?[indexPath.row]
         let message = currentObject?["text"] as! String
-        if let currentUser = currentObject?["user"] {
-            (currentUser as! PFUser).fetchIfNeededInBackground {
-                (user: PFObject?, error: Error?) -> Void in
-                
-                if error != nil {
-                    print("error fetching user")
-                } else {
-                    
+        if let user = currentObject?["user"] {
 //                    print("\((user as! PFUser).username)")
-                     cell.messageLabel.text = (user as! PFUser).username! + ": " + message
-                }
-            }
+            cell.messageLabel.text = (user as! PFUser).username! + ": " + message
+            
+            
         }
         else {
             cell.messageLabel.text = message
         }
+        
+        cell.messageLabel.sizeToFit()
         return cell
     }
 
