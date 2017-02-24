@@ -171,6 +171,7 @@
                         <outlet property="messageTableView" destination="Kry-Nb-8F3" id="dky-gH-ZOM"/>
                         <outlet property="messageTextField" destination="PMr-dI-qwH" id="g1o-Dd-sPR"/>
                         <outlet property="sendButton" destination="fmP-U3-Efy" id="l1S-H9-vn8"/>
+                        <outlet property="tableView" destination="Kry-Nb-8F3" id="1uT-I3-GoS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTR-iO-fXp" userLabel="First Responder" sceneMemberID="firstResponder"/>

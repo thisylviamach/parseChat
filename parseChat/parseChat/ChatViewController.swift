@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var messageTextField: UITextField!
     
@@ -17,11 +17,36 @@ class ChatViewController: UIViewController {
 
     @IBOutlet weak var sendButton: UIButton!
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    var messages: [PFObject]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // table view initalization
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        // add handler for pressing Send button
         sendButton.addTarget(self, action: #selector(sendMessageOnclick), for: .primaryActionTriggered)
         
-        // Do any additional setup after loading the view.
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {_ in 
+            // query parse every second for all messages using Message class
+            let query = PFQuery(className: "Message")
+            query.order(byDescending: "createdAt")
+            query.findObjectsInBackground {
+                (objects: [PFObject]?, error: Error?) -> Void in
+                if let error = error {
+                    print("findObjects error: \(error)")
+                } else {
+                    if let objects = objects {
+                        self.messages = objects
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +57,7 @@ class ChatViewController: UIViewController {
     func sendMessageOnclick(){
         let text = messageTextField.text
         let message = PFObject(className: "Message")
-        
+        message["user"] = PFUser.current()
         message["text"] = text
         message.saveInBackground {
             (success: Bool, error: Error?) -> Void in
@@ -44,7 +69,40 @@ class ChatViewController: UIViewController {
             }
         }
         
-        
+    }
+    
+    /*
+     // MARK: - Table View
+     */
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let messages = self.messages {
+            return messages.count
+        } else {
+            return 0
+        }
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell") as! ChatViewCell
+        let currentObject = self.messages?[indexPath.row]
+        let message = currentObject?["text"] as! String
+        if let currentUser = currentObject?["user"] {
+            (currentUser as! PFUser).fetchIfNeededInBackground {
+                (user: PFObject?, error: Error?) -> Void in
+                
+                if error != nil {
+                    print("error fetching user")
+                } else {
+                    
+//                    print("\((user as! PFUser).username)")
+                     cell.messageLabel.text = (user as! PFUser).username! + ": " + message
+                }
+            }
+        }
+        else {
+            cell.messageLabel.text = message
+        }
+        return cell
     }
 
     /*
