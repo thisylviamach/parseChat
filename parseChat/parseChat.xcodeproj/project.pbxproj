@@ -13,6 +13,7 @@
 		D62301151E5FEAC30080EBFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62301141E5FEAC30080EBFF /* Assets.xcassets */; };
 		D62301181E5FEAC30080EBFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62301161E5FEAC30080EBFF /* LaunchScreen.storyboard */; };
 		D62301201E5FF9FE0080EBFF /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623011F1E5FF9FE0080EBFF /* ChatViewController.swift */; };
+		D62301221E6002AF0080EBFF /* ChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62301211E6002AF0080EBFF /* ChatViewCell.swift */; };
 		FF06CA95B5AD60478D7FBCE8 /* Pods_parseChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8157EB741F6AD9D9CD5F79FF /* Pods_parseChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		D62301171E5FEAC30080EBFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D62301191E5FEAC30080EBFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D623011F1E5FF9FE0080EBFF /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		D62301211E6002AF0080EBFF /* ChatViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				D62301161E5FEAC30080EBFF /* LaunchScreen.storyboard */,
 				D62301191E5FEAC30080EBFF /* Info.plist */,
 				D623011F1E5FF9FE0080EBFF /* ChatViewController.swift */,
+				D62301211E6002AF0080EBFF /* ChatViewCell.swift */,
 			);
 			path = parseChat;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D62301221E6002AF0080EBFF /* ChatViewCell.swift in Sources */,
 				D62301101E5FEAC30080EBFF /* LoginViewController.swift in Sources */,
 				D62301201E5FF9FE0080EBFF /* ChatViewController.swift in Sources */,
 				D623010E1E5FEAC30080EBFF /* AppDelegate.swift in Sources */,
