@@ -38,8 +38,19 @@ class ViewController: UIViewController {
         user.signUpInBackground {
             (succeeded: Bool, error: Error?) -> Void in
             if let error = error {
-                let errorString = (error as NSError).userInfo["error"] as? NSString
+                let errorString = (error as NSError).userInfo["error"] as? String
                 // Show the errorString somewhere and let the user try again.
+                
+                let alertController = UIAlertController(title: "Error", message: errorString, preferredStyle: .alert)
+                // create an OK action
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    // do nothing
+                }
+                // add the OK action to the alert controller
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true) {
+                    // optional code for what happens after the alert controller has finished presenting
+                }
                 
                 print("signUp: \(errorString)")
                 
@@ -54,8 +65,20 @@ class ViewController: UIViewController {
         PFUser.logInWithUsername(inBackground: emailTextField.text!, password: passwordTextField.text!) {
             (user: PFUser?, error: Error?) -> Void in
             if user != nil {
-                if let errorString = (error as? NSError)?.userInfo["error"] as? NSString {
+                if let errorString = (error as? NSError)?.userInfo["error"] as? String {
                     print("logIn: \(errorString)")
+                    
+                    let alertController = UIAlertController(title: "Error", message: errorString, preferredStyle: .alert)
+                    // create an OK action
+                    let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                        // do nothing
+                    }
+                    // add the OK action to the alert controller
+                    alertController.addAction(OKAction)
+                    self.present(alertController, animated: true) {
+                        // optional code for what happens after the alert controller has finished presenting
+                    }
+                    
                 }
             } else {
                 print("logIn: success")
