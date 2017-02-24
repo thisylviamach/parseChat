@@ -62,6 +62,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="Rh9-mH-dMh" id="sKP-4e-vHZ"/>
+                        <outlet property="logInButton" destination="kU9-s7-TPz" id="dFN-lv-UnJ"/>
+                        <outlet property="passwordTextField" destination="E8p-j4-eB4" id="hkT-K6-vR5"/>
+                        <outlet property="signUpButton" destination="WDs-A3-Ggs" id="0CU-n5-Efd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
